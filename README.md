@@ -9,6 +9,29 @@ a small degradation of the metric (e.g.: accuracy) used to evaluate the NN.
 
 *Unofficial implementation, with understandability in mind (verbose implementation)*
 
+# Method
+
+I could write about it, but with some pseudo code you'll understand better
+
+```python
+# Init an already trained model and a dataset containing images
+model = load_model("resnet50", weights="imagenet")
+dataset = create_dataset()
+
+# Test the model without any modifications
+original_predictions = model.predict(dataset)
+
+# Hide the secret in the model weights - this modifies the float values in the model
+secret = read_secret()
+hide_secret_in_model(model, secret, bit_to_use=8)
+
+# With the modified weights make predictions for the same dataset
+modified_predictions = model.predict(dataset)
+
+# From here we can check what predictiosn changed in the model and adjust the hiding of the secret if necessary
+nb_predictions_changed = calculate_changes(original_predictions, modified_predictions)
+```
+
 # Citations
 
 ```bibtex
