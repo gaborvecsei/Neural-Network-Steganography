@@ -84,3 +84,6 @@ nb_predictions_changed = calculate_changes(original_predictions, modified_predic
 }
 ```
 
+> This repo does not encourage anyone to use such techniques to commit anything illegal. Its only intention it to
+> experiment with hiding secrets in neural networks
+
