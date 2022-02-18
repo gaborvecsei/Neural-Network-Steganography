@@ -7,17 +7,17 @@ class FloatBinary:
     def __init__(self, v: float) -> None:
         self.v: float = float(v)
 
-        _bin: Tuple[bool] = self.float_to_binary(self.v)
-        _splitted_bin: dict = self.split_binary(_bin)
+        self._bin: Tuple[bool] = self.float_to_binary(self.v)
+        self._splitted_bin: dict = self.split_binary(self._bin)
 
         # 1 bit for sign
-        self.sign: bool = _splitted_bin["sign"]
+        self.sign: bool = self._splitted_bin["sign"]
 
         # 8 bits for exponent
-        self.exponent: Tuple[bool] = _splitted_bin["exponent"]
+        self.exponent: Tuple[bool] = self._splitted_bin["exponent"]
 
         # Full 23 bits for fraction/mantissa - 3 parts: first 7 bits, middle 8 bits, last 8 bits
-        self.fraction: Tuple[bool] = _splitted_bin["fraction"]
+        self.fraction: Tuple[bool] = self._splitted_bin["fraction"]
 
     def get_fraction_part(self, part: int) -> Tuple[bool]:
         if part == 0:
@@ -70,3 +70,7 @@ class FloatBinary:
 
         new_float_value = FloatBinary._reconstruct_float_value(sign=sign, exponent=exponent, fraction=fraction)
         return FloatBinary(new_float_value)
+
+    def as_bit_str(self) -> str:
+        return self.bool_to_str_representation(self._bin)
+
