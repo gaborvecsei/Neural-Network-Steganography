@@ -32,6 +32,24 @@ modified_predictions = model.predict(dataset)
 nb_predictions_changed = calculate_changes(original_predictions, modified_predictions)
 ```
 
+# Run
+
+Build the docker image
+
+```shell
+docker build -t stego_nn .
+```
+
+Run the image - this will create a jupyter notebook instance
+
+```shell
+docker run -d --rm --name stegonn -p 8888:8888 -v $(pwd):/code --gpus '"device=0"' -u $(id -u):$(id -g) stego_nn
+
+docker exec stegonn jupyter lab list
+
+# Now you can open http://<IP>:8888 for the jupyter notebook server
+```
+
 # Citations
 
 ```bibtex

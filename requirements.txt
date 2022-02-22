@@ -1,0 +1,6 @@
+# Tensorflow is required, should be installed - already in the docker image
+# tensorflow
+
+numpy
+matplotlib
+
