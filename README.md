@@ -42,8 +42,10 @@ docker build -t stego_nn .
 
 Run the image - this will create a jupyter notebook instance
 
+*(<DATA> is a folder where you have the images used for testing)*
+
 ```shell
-docker run -d --rm --name stegonn -p 8888:8888 -v $(pwd):/code --gpus '"device=0"' -u $(id -u):$(id -g) stego_nn
+docker run -d --rm --name stegonn -p 8888:8888 -v $(pwd):/code -v <DATA>:/data --gpus '"device=0"' -u $(id -u):$(id -g) stego_nn
 
 docker exec stegonn jupyter lab list
 

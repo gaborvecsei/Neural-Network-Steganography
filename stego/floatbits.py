@@ -77,7 +77,7 @@ class FloatBinary:
             raise ValueError("Fraction should be 23 values bits")
         if len(exponent) != 8:
             raise ValueError("Exponent should be 8 bits")
-        if isinstance(sign, bool):
+        if not isinstance(sign, bool):
             raise ValueError("Sign is a single bit")
 
         fraction = (True,) + fraction
@@ -108,7 +108,7 @@ class FloatBinary:
         sign = sign if sign is not None else self.sign
         exponent = exponent if exponent is not None else self.exponent
         fraction = fraction if fraction is not None else self.fraction
-
+        
         new_float_value = FloatBinary._reconstruct_float_value(sign=sign, exponent=exponent, fraction=fraction)
         return FloatBinary(new_float_value)
 
