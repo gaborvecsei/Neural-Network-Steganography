@@ -9,6 +9,8 @@ a small degradation of the metric (e.g.: accuracy) used to evaluate the NN.
 
 *Unofficial implementation, with understandability in mind (verbose implementation)*
 
+[*EvilModel paper*](https://arxiv.org/abs/2107.08590)
+
 # Method
 
 I could write about it, but with some pseudo code you'll understand better
@@ -107,3 +109,7 @@ docker exec stegonn jupyter lab list
 > This repo does not encourage anyone to use such techniques to commit anything illegal. Its only intention it to
 > experiment with hiding secrets in neural networks
 
+From `/u/jrkirby` from my [Reddit post](https://www.reddit.com/r/MachineLearning/comments/vnggck/p_neural_network_steganography_implementation/):
+
+> Yes, for when Alice is regularly passing trained neural networks to Bob and wants to convey secret information. While Eve is monitoring their communications and will be alerted if they send actual encrypted communications between each other, Eve finds no suspicion in the regular back & forth of models trained on the same task, with the same methodology, and similar performance.
+If that situation sounds like the one you're in, this is a game changer.
